@@ -1,4 +1,4 @@
-package RetailItem;
+package Lab_09.RetailItem;
 
 public class Tester {
     public static void main(String[] args) {

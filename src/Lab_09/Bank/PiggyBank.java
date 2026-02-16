@@ -1,4 +1,4 @@
-package Bank;
+package Lab_09.Bank;
 
 public class PiggyBank implements Measureable {
     private int one;

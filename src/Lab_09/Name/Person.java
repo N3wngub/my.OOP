@@ -1,4 +1,4 @@
-package Name;
+package Lab_09.Name;
 
 public class Person implements Nameable{
     String name;

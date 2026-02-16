@@ -1,4 +1,4 @@
-package Bank;
+package Lab_09.Bank;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Bank;
+package Lab_09.Bank;
 public class BankAccount implements Measureable{
     private String accNo;
     private double balance;

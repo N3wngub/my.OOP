@@ -1,4 +1,4 @@
-package RetailItem;
+package Lab_09.RetailItem;
 
 public class DvdMovie implements RetailItem {
     private String title;
