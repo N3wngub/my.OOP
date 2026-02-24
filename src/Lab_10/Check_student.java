@@ -9,6 +9,7 @@ public class Check_student {
         int countIT = 0;
         int countSE = 0;
         int countCS = 0;
+
         while (kb.hasNext()) {
             num = kb.next();
             major = kb.next();
