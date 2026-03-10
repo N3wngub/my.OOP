@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+import Project_101.Beverage;
+import Project_101.Food;
+import Project_101.Order;
+import Project_101.Payment;
+
 public class Tester_POS {
     public static void main(String[] args) {
         Beverage b1 = new Beverage("100","Matcha",100,100,true);
@@ -14,7 +19,7 @@ public class Tester_POS {
 
         System.out.println(o1.itemCount);
         Scanner kb = new Scanner(System.in);
-        System.out.println("Cash : ");
+        System.out.print("Cash : ");
         int cash = kb.nextInt();
         Payment p1 = new Payment(o1,0.07);
         p1.processPayment(cash);
