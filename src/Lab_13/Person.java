@@ -1,4 +1,17 @@
 package Lab_13;
+
+/**
+ * Simple data class representing a person registering for membership.
+ *
+ * Stores username, password, confirm-password, name and eâ€‘mail.
+ * The {@code Check} method performs a series of validation checks
+ * returning a code that the caller can use to determine which field
+ * was missing or invalid.  The order of the checks matches the
+ * natural flow of a registration form: username, password, confirm
+ * password, match check, name and finally eâ€‘mail.  This class also
+ * overrides {@code toString} to return the person's name and eâ€‘mail
+ * in a human friendly format.
+ */
 public class Person {
     private String username;
     private String password;
@@ -46,25 +59,48 @@ public class Person {
         Cpassword = cpassword;
     }
 
-    public String Check(){
-        if(username != null){
-            if (password != null){
-                if(Cpassword  != null){
-                    if (password == Cpassword) {
-                        if (name != null){
-                            if (email != null){
-                               return "correct";
-                            }else return "missEmail";
-                        }else return "missName";
-                    }else return "passMissmatch";
-                }else return "missCpass";
-            }else return "missPass";
-        } else return "missUser" ;
+    /**
+     * Validate the internal state of this {@code Person}.  All fields
+     * must be nonâ€‘null and nonâ€‘empty and the password and confirmation
+     * must match.  Returns a simple status code indicating the first
+     * missing or invalid field.  The codes are:
+     *
+     * <ul>
+     *   <li>{@code "missUser"} â€“ username is missing</li>
+     *   <li>{@code "missPass"} â€“ password is missing</li>
+     *   <li>{@code "missCpass"} â€“ confirmâ€‘password is missing</li>
+     *   <li>{@code "passMissmatch"} â€“ password and confirm password do not match</li>
+     *   <li>{@code "missName"} â€“ name is missing</li>
+     *   <li>{@code "missEmail"} â€“ eâ€‘mail is missing</li>
+     *   <li>{@code "correct"} â€“ all fields are valid</li>
+     * </ul>
+     *
+     * @return the status code describing the first validation failure or {@code "correct"} if valid.
+     */
+    public String Check() {
+        if (username == null || username.trim().isEmpty()) {
+            return "missUser";
+        }
+        if (password == null || password.trim().isEmpty()) {
+            return "missPass";
+        }
+        if (Cpassword == null || Cpassword.trim().isEmpty()) {
+            return "missCpass";
+        }
+        if (!password.equals(Cpassword)) {
+            return "passMissmatch";
+        }
+        if (name == null || name.trim().isEmpty()) {
+            return "missName";
+        }
+        if (email == null || email.trim().isEmpty()) {
+            return "missEmail";
+        }
+        return "correct";
     }
 
-
-
-    public String toString(){
+    @Override
+    public String toString() {
         return "Name : " + name + "\n" + "Email : " + email;
     }
 }
